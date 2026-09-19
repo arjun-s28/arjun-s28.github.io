@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arjun S | Portfolio</title>
+
+<style>
+:root {
+  --bg: #07111f;
+  --surface: #0d1b2d;
+  --text: #edf5ff;
+  --muted: #a9bad0;
+  --accent: #59e1d1;
+  --accent2: #82aaff;
+  --line: rgba(180,207,239,.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.7 Arial, sans-serif;
+}
+
+.container {
+  width: min(1100px, calc(100% - 40px));
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(7,17,31,.95);
+  border-bottom: 1px solid var(--line);
+}
+
+nav {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  color: var(--text);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brand span,
+h1 span {
+  color: var(--accent);
+}
+
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.navlinks a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.navlinks a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  align-items: center;
+  gap: 48px;
+  padding: 85px 0;
+}
+
+.eyebrow,
+.kicker,
+.project-tag {
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-weight: bold;
+  font-size: .8rem;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 1.1;
+  margin: 18px 0;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  line-height: 1.2;
+}
+
+.lead,
+.section-intro,
+.card p,
+.panel p {
+  color: var(--muted);
+}
+
+.lead {
+  font-size: 1.1rem;
+  max-width: 690px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 19px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #04131c;
+}
+
+/* PROFILE PHOTO */
+
+.portrait-wrap {
+  width: 280px;
+  height: 280px;
+  justify-self: center;
+  padding: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  overflow: hidden;
+}
+
+.portrait {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+section {
+  padding: 60px 0;
+  scroll-margin-top: 80px;
+}
+
+.section-head {
+  margin-bottom: 25px;
+}
+
+.about-grid,
+.skills-grid,
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.skills-grid,
+.project-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.panel,
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 16px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #dceafa;
+  font-size: .9rem;
+}
+
+/* PROJECT CARDS */
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #ffffff;
+  display: block;
+}
+
+.project-card .btn {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.note {
+  color: var(--muted);
+}
+
+.contact-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  padding: 25px 0;
+}
+
+/* MOBILE LAYOUT */
+
+@media (max-width: 780px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 55px 0;
+  }
+
+  .portrait-wrap {
+    grid-row: 1;
+    width: 210px;
+    height: 210px;
+  }
+
+  .about-grid,
+  .skills-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 15px 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="container">
+    <a class="brand" href="#home">ARJUN<span>.S</span></a>
+
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main class="container">
+
+  <!-- HOME -->
+
+  <section class="hero" id="home">
+    <div>
+      <div class="eyebrow">Learn · Build · Grow</div>
+
+      <h1>Hi, I'm <span>ARJUN.S</span></h1>
+
+      <p class="lead">
+        B.Tech CSE (AI &amp; Data Science) student at Parul University,
+        exploring software development, app and web building, IoT,
+        and software testing. I enjoy turning ideas into practical
+        projects and learning by building.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore my projects</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="portrait-wrap">
+      <img
+        class="portrait"
+        src="./arjun.jpeg.jpeg"
+        alt="Arjun S"
+      >
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="section-head">
+      <div class="kicker">A little about me</div>
+
+      <h2>Curious by nature. Learning by building.</h2>
+
+      <p class="section-intro">
+        I'm a first-semester B.Tech CSE (AI &amp; Data Science) student
+        at Parul University, passionate about technology, software
+        development, Artificial Intelligence, Data Science, and IoT.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="panel">
+        <h3>My approach</h3>
+
+        <p>
+          I’m building my foundation in programming and exploring how
+          ideas can become practical projects. I enjoy learning new
+          technologies, solving problems, and gaining hands-on experience.
+          My goal is to keep learning, build meaningful projects, and grow
+          into a skilled technology professional.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>What I'm exploring</h3>
+
+        <p>
+          Programming fundamentals, web development, AI and data science
+          concepts, IoT systems, and software testing.
+        </p>
+
+        <div class="chips">
+          <span class="chip">Problem-solving</span>
+          <span class="chip">Hands-on learning</span>
+          <span class="chip">Teamwork</span>
+          <span class="chip">Curiosity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+    <div class="section-head">
+      <div class="kicker">Skills &amp; interests</div>
+
+      <h2>Tools and topics I'm learning</h2>
+
+      <p class="section-intro">
+        A growing skill set—I'll keep adding to it as I practice
+        and complete projects.
+      </p>
+    </div>
+
+    <div class="skills-grid">
+      <article class="card">
+        <h3>Programming</h3>
+        <p>C · Python · C++</p>
+      </article>
+
+      <article class="card">
+        <h3>Web development</h3>
+        <p>HTML · CSS · JavaScript fundamentals</p>
+      </article>
+
+      <article class="card">
+        <h3>Areas of interest</h3>
+        <p>
+          Artificial Intelligence · Data Science · IoT · Software testing
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+
+  <section id="projects">
+    <div class="section-head">
+      <div class="kicker">Selected work</div>
+
+      <h2>Projects</h2>
+
+      <p class="section-intro">
+        A project I'm working on and a place to showcase future work.
+      </p>
+    </div>
+
+    <div class="project-grid">
+
+      <!-- PARKING PROJECT -->
+
+      <article class="card project-card">
+        <div class="project-tag">IoT / Smart systems</div>
+
+        <img
+          src="./Parking-system.jpg"
+          alt="Smart Automated Parking Allocation System"
+          class="project-image"
+        >
+
+        <h3>Smart Automated Parking Allocation System</h3>
+
+        <p>
+          A smart-parking project concept focused on helping drivers
+          identify available parking spaces and supporting more organized
+          parking allocation. Add the sensors, hardware, software, and
+          features you have actually implemented as the project develops.
+        </p>
+
+        <div class="chips">
+          <span class="chip">IoT</span>
+          <span class="chip">Automation</span>
+          <span class="chip">Smart parking</span>
+        </div>
+
+        <a
+          class="btn"
+          href="https://github.com/arjun-s28"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View GitHub profile ↗
+        </a>
+      </article>
+
+      <!-- FUTURE PROJECTS -->
+
+      <article class="card project-card">
+        <div class="project-tag">Coming soon</div>
+
+        <h3>More projects in progress</h3>
+
+        <p>
+          Use this space for your next C, Python, web, or AI/Data Science
+          project once you have something to share.
+        </p>
+
+        <div class="chips">
+          <span class="chip">Learning</span>
+          <span class="chip">Building</span>
+        </div>
+      </article>
+
+      <!-- PORTFOLIO PROJECT -->
+
+      <article class="card project-card">
+        <div class="project-tag">Portfolio</div>
+
+        <h3>Personal Portfolio Website</h3>
+
+        <p>
+          This responsive website introduces my interests, learning
+          journey, and project work.
+        </p>
+
+        <div class="chips">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">Responsive design</span>
+        </div>
+
+        <a
+          class="btn"
+          href="https://github.com/arjun-s28"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+      </article>
+
+    </div>
+
+    <p class="note">
+      Only describe features you have actually built. When you publish
+      the parking project repository, replace the GitHub profile button
+      with that specific repository URL.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+    <div class="panel contact-box">
+      <div>
+        <div class="kicker">Let's connect</div>
+
+        <h2>Learning, building, and open to connecting.</h2>
+
+        <p class="section-intro">
+          Find me on GitHub and LinkedIn.
+        </p>
+      </div>
+
+      <div class="actions">
+        <a
+          class="btn primary"
+          href="https://github.com/arjun-s28"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+
+        <a
+          class="btn"
+          href="https://www.linkedin.com/in/arjun-s-283527434/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 Arjun S · Built with HTML &amp; CSS.
+  </div>
+</footer>
+
+</body>
+</html>
